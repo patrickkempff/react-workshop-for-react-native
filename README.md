@@ -7,7 +7,7 @@ Oefeningen React Native Workshop
 ```bash
 $ git clone https://github.com/patrickkempff/react-workshop.git
 $ cd react-native-workshop
-$ npm install
+$ yarn install
 $ react-native run-ios
 $ react-native run-android
 ```
