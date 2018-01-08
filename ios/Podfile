@@ -1,0 +1,46 @@
+platform :ios, '9.0'
+inhibit_all_warnings!
+
+react_native_path = '../node_modules/react-native'
+
+target 'ReactNativeWorkshop' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Yoga is a cross-platform layout engine which implements Flexbox.
+  # More information https://facebook.github.io/yoga/
+  pod 'yoga', path: "#{react_native_path}/ReactCommon/yoga/yoga.podspec"
+
+  # React Native is a framework for building native apps with React.
+  # https://github.com/facebook/react-native & https://github.com/facebook/react
+  pod 'React', path: react_native_path, subspecs: [
+    # We make sure subspecs are included explicitly, this will
+    # reduce overhead, buildtime and the final size of the app.
+    'Core',
+    'RCTBlob',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+    'CxxBridge',
+    'DevSupport'
+  ]
+
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => "#{react_native_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'GLog', :podspec => "#{react_native_path}/third-party-podspecs/GLog.podspec"
+  pod 'Folly', :podspec => "#{react_native_path}/third-party-podspecs/Folly.podspec"
+
+
+
+  target 'ReactNativeWorkshopTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
